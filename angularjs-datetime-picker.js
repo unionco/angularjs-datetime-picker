@@ -65,7 +65,6 @@
       //show datetimePicker below triggerEl
       var bcr = triggerEl.getBoundingClientRect();
 
-
       options.scope.$apply();
 
       var datePickerElBcr = datetimePickerEl.getBoundingClientRect();
@@ -157,7 +156,9 @@
           firstLetter: day.substr(0, 1)
         });
       }
-      firstDayOfWeek = 0;
+      firstDayOfWeek = $locale.DATETIME_FORMATS.FIRSTDAYOFWEEK !== null ?
+        ($locale.DATETIME_FORMATS.FIRSTDAYOFWEEK + 1) % 7 :
+        0;
     };
 
     var getMonthView = function(year, month) {
